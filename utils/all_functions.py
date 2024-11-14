@@ -2,7 +2,6 @@ import requests
 import streamlit as st
 import pdfplumber
 import plotly.graph_objects as go
-import numpy as np
 
 def extract_names_with_progress(pdf_url):
     progress_bar = st.progress(0)
@@ -64,55 +63,12 @@ def plot_radar_chart_plotly(female_to_male_dialogue, female_to_male_matches, wom
             radialaxis=dict(
                 visible=True,
                 range=[0, 100],
-                tickvals=np.arange(0, 101, 10)
+                tickvals=list(range(0, 101, 10))  # Using range instead of np.arange
             ),
         ),
         showlegend=False
     )
     
-    return fig
-
-def plot_combined_radar_chart_plotly(stats_1, stats_2, labels):
-    # Extend stats to close the radar chart loop
-    stats_1 += stats_1[:1]
-    stats_2 += stats_2[:1]
-    labels += [labels[0]]  # Repeat the first label for closing loop
-
-    # Create the radar chart
-    fig = go.Figure()
-
-    # Add the first movie stats
-    fig.add_trace(go.Scatterpolar(
-        r=stats_1,
-        theta=labels,
-        fill='toself',
-        name='Movie 1',
-        line_color='blue',
-        visible=True  # Initially visible
-    ))
-
-    # Add the second movie stats
-    fig.add_trace(go.Scatterpolar(
-        r=stats_2,
-        theta=labels,
-        fill='toself',
-        name='Movie 2',
-        line_color='red',
-        visible=True  # Initially visible
-    ))
-
-    # Update the layout for radar chart
-    fig.update_layout(
-        polar=dict(
-            radialaxis=dict(
-                visible=True,
-                range=[0, 100],
-                tickvals=np.arange(0, 101, 10)
-            ),
-        ),
-        showlegend=True
-    )
-
     return fig
 
 

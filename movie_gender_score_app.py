@@ -3,7 +3,7 @@ import pandas as pd
 import spacy
 import re
 from collections import defaultdict
-from utils.all_functions import extract_names_with_progress, calculate_inclusion_metrics, plot_radar_chart_plotly, plot_combined_radar_chart_plotly
+from utils.all_functions import extract_names_with_progress, calculate_inclusion_metrics, plot_radar_chart_plotly
 
 # Load the spaCy model
 nlp = spacy.load("en_core_web_sm")
