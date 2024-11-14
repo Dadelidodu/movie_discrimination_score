@@ -83,7 +83,7 @@ st.title("The Movie Gender Score App")
 
 option = st.selectbox(
     "Choose an option to get started:",
-    ["Upload PDF URL", "Select from List", "Compare Movies"]
+    ["Upload PDF URL", "Select from List"]
 )
 
 # Load PDF URLs from a local CSV file
