@@ -1,1 +1,1 @@
-# movie_discrimination_score
+## link to app --->  https://moviegenderscore.streamlit.app/
