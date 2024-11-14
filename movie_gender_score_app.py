@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.subplots as sp
 import spacy
 import re
 from collections import defaultdict
