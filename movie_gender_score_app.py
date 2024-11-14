@@ -184,7 +184,8 @@ elif option == "Select from List":
                     st.write("Select male and female characters from the PDF:")
                     character_names = [name for name, _ in top_characters]
                     male_characters = st.multiselect("Select male characters from PDF ", character_names)
-                    female_characters = st.multiselect("Select female characters from PDF ", character_names)
+                    available_female_characters = [name for name in character_names if name not in male_characters]
+                    female_characters = st.multiselect("Select female characters from PDF ", available_female_characters)
 
                     submit = st.button("Submit")
 
