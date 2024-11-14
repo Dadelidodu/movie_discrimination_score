@@ -1,12 +1,9 @@
 import streamlit as st
 import pandas as pd
-import spacy
 import re
 from collections import defaultdict
 from utils.all_functions import extract_names_with_progress, calculate_inclusion_metrics, plot_radar_chart_plotly
 
-# Load the spaCy model
-nlp = spacy.load("en_core_web_sm")
 
 def normalize_name(name):
     # Remove suffixes like (CONT'D), *, (VOICE), and trailing punctuation
@@ -18,11 +15,6 @@ def normalize_name(name):
         return None
     # Check if the name starts with EXT. or INT.
     if normalized_name.endswith(':'):
-        return None
-    # Use spaCy to check if the normalized name contains verbs
-    doc = nlp(normalized_name)
-    # Return None if the normalized name contains verbs
-    if any(token.pos_ == ('VERB') for token in doc):
         return None
     return normalized_name
 
