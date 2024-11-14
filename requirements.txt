@@ -1,8 +1,6 @@
 streamlit
 requests
 pdfplumber
-re
-collections
 plotly
 numpy
 pandas
